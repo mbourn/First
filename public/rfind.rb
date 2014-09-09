@@ -16,7 +16,9 @@ directory_string=`find .`
 ## \n between each line as the split between elements
 array_of_paths=directory_string.split("\n").sort!
 
-#  Print the first line
+#  This prints the first section of results.  It loops through the array
+## searching for filenames that contain the specified string and end in a
+## specific file extension.
 puts "Files with names that matches <#{ARGV[0]}>"
 array_of_paths.each do |path|
 	if ( path=~/.*#{ARGV[0]}\.((rb)|(erb)|(js)|(css)|(html)|(yml)|(txt))$/ )
@@ -24,13 +26,15 @@ array_of_paths.each do |path|
 	end
 end
 puts "*" * 50
-puts "Files with content that matches <#{ARGV[0]}>"
 
-
-#  Loop through the array, test each element to see if it contains 
-## a full path to a file, test that file to see if it has the proper
-## file extension, grep it if it does, print results if any found.
+#  This prints the second section.  It loops through the array, testing
+## each element to see if it contains a full path to a file, then testing that
+## file to see if it has the proper file extension, greping it if it does, and
+## printing the results if any are found.  The variable is used to prevent the
+## script from printing a line of dashes if the output it is the first time 
+## the script has printed in this section.
 not_first_pass=0
+puts "Files with content that matches <#{ARGV[0]}>"
 array_of_paths.each do |path|
 	if ( path=~/.*\.((rb)|(erb)|(js)|(css)|(html)|(yml)|(txt))$/ )
 		grep_result=`grep -ni \'#{ARGV[0]}\' #{path}`
