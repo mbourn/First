@@ -3,9 +3,9 @@
 #  Written  by: mbourn
 #  Written  on: 9/5/14
 #  Description: This is a script that searches the current directory, and all
-#  				subdirectories, for either filenames or text files containing
-# 				a specified string.  It then prints the results to the screen.
-#  				This is the long, readable version with verbose comments. 
+#               subdirectories, for either filenames or text files containing
+#               a specified string.  It then prints the results to the screen.
+#               This is the long, readable version with verbose comments. 
 ###############################################################################
 
 #  This line executes a bash command that lists all current and 
